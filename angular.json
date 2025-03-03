@@ -30,7 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "sourceMap": true,
+            "optimization": false,
+            "vendorChunk": true,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -66,7 +70,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "url-shortner-frontend:build"
+            "browserTarget": "url-shortner-frontend:build",
+            "sourceMap": true,
+            "optimization": false
           },
           "configurations": {
             "production": {

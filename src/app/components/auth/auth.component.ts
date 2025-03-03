@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -34,7 +34,7 @@ export class AuthComponent {
     if (this.isLoginMode) {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
         .subscribe(response => {
-          localStorage.setItem('token', response['token']);
+          localStorage.setItem('token', response['access_token']);
           this.router.navigate(['/dashboard']);
         }, error => {
           alert('Login failed: ' + error.message);
