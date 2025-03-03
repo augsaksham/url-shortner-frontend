@@ -111,4 +111,11 @@ export class DashboardComponent implements OnInit {
       console.error('Failed to copy text: ', err);
     });
   }
+
+  signOut() {
+    if (confirm('Are you sure you want to sign out?')) {
+      localStorage.removeItem('token');
+      this.router.navigate(['/auth']);
+    }
+  }
 }
