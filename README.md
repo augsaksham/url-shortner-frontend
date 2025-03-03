@@ -1,27 +1,95 @@
-# UrlShortnerFrontend
+# URL Shortener Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+A modern web application built with Angular that provides URL shortening services with user authentication and management capabilities.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- User authentication (Login/Register)
+- URL shortening with custom expiry dates
+- Dashboard to manage shortened URLs
+- Copy-to-clipboard functionality
+- URL access statistics
+- Automatic URL validation
+- Responsive design
 
-## Code scaffolding
+## User Journey
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```mermaid
+graph TD
+    A[User Visits Site] --> B{Has Account?}
+    B -->|No| C[Register]
+    B -->|Yes| D[Login]
+    C --> D
+    D --> E[Dashboard]
+    E --> F[Enter Long URL]
+    F --> G[Set Expiry Days]
+    G --> H[Generate Short URL]
+    H --> I[View in URL List]
+    I --> J[Copy/Share URL]
+```
 
-## Build
+## Authentication Flow
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant B as Backend
+    
+    U->>F: Enter Credentials
+    F->>B: Authentication Request
+    B->>B: Validate Credentials
+    B->>F: Return JWT Token
+    F->>F: Store Token
+    F->>U: Redirect to Dashboard
+```
 
-## Running unit tests
+## System Architecture
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```mermaid
+graph LR
+    A[Angular Frontend] --> B[Auth Guard]
+    B --> C[Protected Routes]
+    A --> D[Services]
+    D --> E[Auth Service]
+    D --> F[Dashboard Service]
+    E --> G[Backend API]
+    F --> G
+```
 
-## Running end-to-end tests
+## Setup and Installation
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Clone the repository
+```bash
+git clone [repository-url]
+cd url-shortner-frontend
+```
 
-## Further help
+2. Install dependencies
+```bash
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+3. Start the development server
+```bash
+ng serve
+```
+
+4. Navigate to `http://localhost:4200`
+
+## Project Structure
+
+```
+url-shortner-frontend/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── auth/
+│   │   │   └── dashboard/
+│   │   ├── services/
+│   │   ├── guards/
+│   │   └── app.module.ts
+│   ├── assets/
+│   └── environments/
+└── package.json
+```
