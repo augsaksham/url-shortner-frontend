@@ -12,6 +12,12 @@ A modern web application built with Angular that provides URL shortening service
 - Automatic URL validation
 - Responsive design
 
+## Auth Page:
+![Auth Page](src/assets/auth.png)
+
+## Dashboard Page: 
+![Dashboard Page](src/assets/dashboard.png)
+
 ## User Journey
 
 ```mermaid
