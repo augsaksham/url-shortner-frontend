@@ -67,7 +67,7 @@ graph LR
 
 1. Clone the repository
 ```bash
-git clone [repository-url]
+git clone https://github.com/augsaksham/url-shortner-frontend
 cd url-shortner-frontend
 ```
 
